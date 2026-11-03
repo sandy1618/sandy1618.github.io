@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<section class="hero">
+  <h1>{{ site.title }}</h1>
+  <p class="lede">{{ site.description }}</p>
+</section>
+
+{{ content }}
+
+<section class="posts">
+  <h2 class="section-label">Writing</h2>
+  <ol class="post-list">
+    {% for post in site.posts %}
+    {% assign words = post.content | number_of_words %}
+    <li>
+      <a class="post-card" href="{{ post.url | relative_url }}">
+        <div class="post-meta"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y' }}</time> · {{ words | divided_by: 230 | plus: 1 }} min read{% if post.tags.size > 0 %} · {{ post.tags | join: ', ' }}{% endif %}</div>
+        <h3>{{ post.title }}</h3>
+        {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+        <span class="read-more">Read post →</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</section>

@@ -1,44 +1,32 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog.
-#
-# If you need help with YAML syntax, here are some quick references for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-
-title: My Techincal Blogging Journal !
-description: This is where the description of your site will go.It can be as long as you like! Happy blogging... ❤
+title: Sandeep Nayak
+description: Notes from building data pipelines and running LLMs on my own hardware, with the numbers I measured.
+author: Sandeep Nayak
 github_username: sandy1618
 timezone: Asia/Tokyo
+lang: en
 
-# Email and twitter are optional:
-email: rockeyrockssandeep1994@gmail.com
-twitter_username:
+permalink: /:year/:month/:day/:title.html
 
-# Set this to true to get LaTeX math equation support
-use_math: true
-
-# Add your Google Analytics ID here if you have one and want to use it
-google_analytics: UA-179104799-1
-
-# Everything below here can be ignored, unless you want to change the theme entirely
-theme: minima
 plugins:
   - jekyll-feed
-  - jekyll-gist
-  - jekyll-octicons
+  - jekyll-seo-tag
   - jekyll-github-metadata
 
 titles_from_headings:
-  enabled:     true
+  enabled: true
   strip_title: true
   collections: true
 
 highlighter: rouge
 markdown: kramdown
 kramdown:
-  math_engine: katex
   input: GFM
   auto_ids: true
   hard_wrap: false
   syntax_highlighter: rouge
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

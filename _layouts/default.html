@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  {% seo %}
+  {% feed_meta %}
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f6fdf'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='16' text-anchor='middle' fill='white'%3ESN%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="{{ '/' | relative_url }}"><span class="brand-mark">SN</span>{{ site.title }}</a>
+      <nav class="nav">
+        <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Writing</a>
+        <a href="{{ '/about.html' | relative_url }}"{% if page.url == '/about.html' %} aria-current="page"{% endif %}>About</a>
+        <a href="https://github.com/{{ site.github_username }}">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <span>© {{ site.time | date: '%Y' }} {{ site.author }}</span>
+      <span><a href="https://github.com/{{ site.github_username }}">GitHub</a> · <a href="{{ '/feed.xml' | relative_url }}">RSS</a></span>
+    </div>
+  </footer>
+</body>
+</html>

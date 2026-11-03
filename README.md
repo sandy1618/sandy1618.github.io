@@ -1,3 +1,7 @@
-# Your blog
+# sandy1618.github.io
 
-This is the repository for your blog! Click *_config.yml* above to get started and fill in the details. Then click *index.md* and edit it to start creating your home page.
+Source of https://sandy1618.github.io, built by GitHub Pages (Jekyll).
+
+- Posts: `_posts/YYYY-MM-DD-slug.md` (first `# Heading` becomes the title; add `description:` in the front matter).
+- Charts and images: `assets/`.
+- Design: `_layouts/` and `assets/css/site.css`.

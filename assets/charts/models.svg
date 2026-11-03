@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="266" viewBox="0 0 760 266" role="img" aria-label="On llama.cpp with 8 requests at once: Gemma 4 26B-A4B 247 sites per hour, Qwen 3.6 35B-A3B 206, dense Qwen 3.8 27B 37"><style>
+  svg { --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781; --grid:#e1e0d9; --axis:#c3c2b7;
+        --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; }
+  @media (prefers-color-scheme: dark) {
+    svg { --surface:#1a1a19; --ink:#f0efec; --ink2:#c3c2b7; --muted:#898781; --grid:#2c2c2a; --axis:#383835;
+          --s1:#3987e5; --s2:#d95926; --s3:#199e70; }
+  }
+  text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .title { font-size:17px; font-weight:600; fill:var(--ink); }
+  .sub { font-size:13px; fill:var(--ink2); }
+  .label { font-size:13px; fill:var(--ink); }
+  .label2 { font-size:12px; fill:var(--ink2); }
+  .value { font-size:13px; font-weight:600; fill:var(--ink); }
+  .tick { font-size:11px; fill:var(--muted); font-variant-numeric:tabular-nums; }
+  .note { font-size:11px; fill:var(--muted); }
+  .grid { stroke:var(--grid); stroke-width:1; }
+  .base { stroke:var(--axis); stroke-width:1; }
+</style><rect width="760" height="266" rx="8" fill="var(--surface)"/><text class="title" x="24" y="34">Same engine, different models: sites per hour</text><text class="sub" x="24" y="56">llama.cpp, 8 requests at once, 4-bit GGUF, M1 Max · 200 websites (Qwen 3.8: same setup, measured separately)</text><line class="grid" x1="274.0" y1="76" x2="274.0" y2="208"/><text class="tick" x="274.0" y="224" text-anchor="middle">0</text><line class="grid" x1="348.4" y1="76" x2="348.4" y2="208"/><text class="tick" x="348.4" y="224" text-anchor="middle">50</text><line class="grid" x1="422.8" y1="76" x2="422.8" y2="208"/><text class="tick" x="422.8" y="224" text-anchor="middle">100</text><line class="grid" x1="497.2" y1="76" x2="497.2" y2="208"/><text class="tick" x="497.2" y="224" text-anchor="middle">150</text><line class="grid" x1="571.6" y1="76" x2="571.6" y2="208"/><text class="tick" x="571.6" y="224" text-anchor="middle">200</text><line class="grid" x1="646.0" y1="76" x2="646.0" y2="208"/><text class="tick" x="646.0" y="224" text-anchor="middle">250</text><text class="label" x="24" y="97.0">llama.cpp</text><text class="label2" x="24" y="111.0">Gemma 4 26B-A4B · MoE, 4B active</text><path d="M274,87.0 H637.5360000000001 Q641.5360000000001,87.0 641.5360000000001,91.0 V105.0 Q641.5360000000001,109.0 637.5360000000001,109.0 H274 Z" fill="var(--s1)"/><text class="value" x="649.5" y="102.0">247</text><text class="label" x="24" y="141.0">llama.cpp</text><text class="label2" x="24" y="155.0">Qwen 3.6 35B-A3B · MoE, 3B active</text><path d="M274,131.0 H576.528 Q580.528,131.0 580.528,135.0 V149.0 Q580.528,153.0 576.528,153.0 H274 Z" fill="var(--s1)"/><text class="value" x="588.5" y="146.0">206</text><text class="label" x="24" y="185.0">llama.cpp</text><text class="label2" x="24" y="199.0">Qwen 3.8 27B · dense, 27B active</text><path d="M274,175.0 H325.056 Q329.056,175.0 329.056,179.0 V193.0 Q329.056,197.0 325.056,197.0 H274 Z" fill="var(--s1)"/><text class="value" x="337.1" y="190.0">37</text><line class="base" x1="274" y1="76" x2="274" y2="208"/><text class="note" x="24" y="252">What runs per token matters more than the total size: the dense 27B model is 5-7x slower than the larger MoE models.</text></svg>

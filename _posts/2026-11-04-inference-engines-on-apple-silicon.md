@@ -142,8 +142,8 @@ parameters per token** set the speed far more than total size.
 - **Gemma 4 does not run properly on an M1.** Its Metal library has no `moe_simd_gelu_gate_up_q4_sbf16` kernel, so each
   step falls back to a slow path: 24 tok/s prefill, 4.7 tok/s decode, 491 s for one site, where llama.cpp runs the
   same model at ~247 sites/hour. Likely a bf16 kernel aimed at newer Apple chips. I stopped that run.
-- With the same model, BaseRT and llama.cpp agreed on the extracted legal name for 17 of 20 sites and the founded year
-  for 15 of 20: two different 4-bit quantisations are not quite the same model.
+- With the same model, BaseRT and llama.cpp agreed on 15 to 17 of 20 sites depending on the field: two different
+  4-bit quantisations are not quite the same model.
 
 ### colibri: the right tool for a different job
 
@@ -193,10 +193,10 @@ reference point.
 ## And the quality question
 
 Speed was only half of my question. On a hand-labelled set, the local models' answers were good but not good enough
-for data I publish: after my cleaning rules, 87-98% of the legal names, founding years and people they kept were
-correct (Qwen 3.6: 92.7%, 91.7%, 95.5%), against 98-100% for the cloud models I use. The errors are the subtle kind:
-the parent company's founding year instead of the division's, a guest speaker listed as staff, a brand name taken for a
-legal name. So for now the laptop stays a test bench, and llama.cpp is the engine on it.
+for data I publish: after my cleaning rules, 87-98% of the extracted facts they kept were correct across my key fields
+(Qwen 3.6: 91.7-95.5%), against 98-100% for the cloud models I use. The errors are the subtle kind—pulling a related
+entity's detail instead of the target's, or mistaking a passing mention for a primary fact. So for now the laptop stays
+a test bench, and llama.cpp is the engine on it.
 
 ## Appendix: how to reproduce
 

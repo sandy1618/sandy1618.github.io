@@ -5,19 +5,34 @@ description: "Four inference engines, one MoE model, one MacBook: websites per h
 
 # llama.cpp vs BaseRT vs colibri: local LLM inference on an M1 Max, measured on a real workload
 
-I extract structured facts from business websites: a model reads a site's key pages and writes a JSON record (what the
-business does, its products, when it was founded, its legal name...), each item with a quote from the page. Cloud models
-do it well, but I have hundreds of thousands of sites, and a MacBook Pro with an M1 Max and 64 GB sitting next to the
-crawler. So: **how fast can that laptop do the job, and which inference engine should run it?**
+If you follow local-LLM news, you have seen the claims.
 
-I tested four engines on my Mac, with the same model and the same websites. The short answer:
+- **BaseRT** says it beats llama.cpp on Apple Silicon, with faster decode and much faster prefill, plus continuous
+  batching built in. <!-- LINK TODO: exact BaseRT claim page; verify wording and which chip the numbers are for -->
+- **colibri** says a pure-C engine can run frontier-size MoE models, far bigger than your RAM, on an ordinary machine by
+  streaming experts from SSD. <!-- LINK TODO: exact colibri README claim -->
+
+Both claims are probably true for the workload each project measured. But a benchmark only tells you about the job it
+ran, and I was not asking "which engine is fastest?" I was asking whether *my* job works on *my* laptop.
+
+My job: I extract structured facts from business websites. A model reads a site's key pages and writes a JSON record
+(what the business does, its products, when it was founded, its legal name...), each item with a quote from the page.
+Cloud models do it well, but I have hundreds of thousands of sites, and a MacBook Pro with an M1 Max and 64 GB sitting
+next to the crawler. So: **for this use case, how fast can that laptop do the job, and which inference engine should
+run it?**
+
+I tried the claims on this task, locally, with the same model and the same websites on four engines. Here is what I
+measured, and where each claim did or did not hold for this use case:
 
 - **llama.cpp (`llama-server`) won**: fastest overall, the only one that gained much from serving 8 requests at once,
   and it never dropped a request or returned broken JSON.
-- **BaseRT** writes tokens a little faster than llama.cpp but reads prompts at half the speed, and on long prompts that
-  decides it.
-- **colibri** is built for a different problem (models bigger than your RAM), and on this Mac it ran ~100x slower.
+- **BaseRT**: the faster-decode claim held (it writes tokens a little faster than llama.cpp), but it reads prompts at
+  half the speed, and on my long prompts that decided it. The batching gain was small here (+12%).
+- **colibri**: built for a different problem (models bigger than your RAM). This model fits in RAM, so on this Mac it
+  ran ~100x slower. Not a flaw in the claim, just not my use case.
 - **Ollama** was the easiest to start and the first to break.
+
+The takeaway is not that those claims are wrong. It depends on your use case, and this post is what happened on mine.
 
 ![Sites extracted per hour on the same 20 websites: llama.cpp 181 with 8 requests at once and 124 with one; BaseRT 126 and 113; colibri under 4](/assets/charts/throughput.svg)
 

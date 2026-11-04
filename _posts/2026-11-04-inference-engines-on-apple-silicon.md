@@ -15,11 +15,10 @@ If you follow local-LLM news, you have seen the claims.
 Both claims are probably true for the workload each project measured. But a benchmark only tells you about the job it
 ran, and I was not asking "which engine is fastest?" I was asking whether *my* job works on *my* laptop.
 
-My job: I extract structured facts from business websites. A model reads a site's key pages and writes a JSON record
-(what the business does, its products, when it was founded, its legal name...), each item with a quote from the page.
-Cloud models do it well, but I have hundreds of thousands of sites, and a MacBook Pro with an M1 Max and 64 GB sitting
-next to the crawler. So: **for this use case, how fast can that laptop do the job, and which inference engine should
-run it?**
+My job: I extract structured facts from websites. A model reads a site's key pages and writes a JSON record, each item
+with a quote from the page. Cloud models do it well, but I have hundreds of thousands of sites, and a MacBook Pro with
+an M1 Max and 64 GB sitting next to the crawler. So: **for this use case, how fast can that laptop do the job, and
+which inference engine should run it?**
 
 I tried the claims on this task, locally, with the same model and the same websites on four engines. Here is what I
 measured, and where each claim did or did not hold for this use case:

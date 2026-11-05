@@ -8,6 +8,21 @@
   {% feed_meta %}
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f6fdf'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='16' text-anchor='middle' fill='white'%3ESN%3C/text%3E%3C/svg%3E">
+  {% if site.google_analytics and site.google_analytics != "" %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+  {% endif %}
+  {% if site.goatcounter_code and site.goatcounter_code != "" %}
+  <script data-goatcounter="https://{{ site.goatcounter_code }}.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  {% endif %}
+  {% if site.google_adsense_client and site.google_adsense_client != "" %}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.google_adsense_client }}" crossorigin="anonymous"></script>
+  {% endif %}
 </head>
 <body>
   <header class="site-header">

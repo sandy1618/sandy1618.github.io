@@ -7,6 +7,11 @@ lang: en
 
 permalink: /:year/:month/:day/:title.html
 
+# Traffic analytics & monetization (fill in IDs when ready)
+google_analytics: ""       # e.g. G-XXXXXXXXXX (Google Analytics 4 Measurement ID)
+goatcounter_code: ""       # e.g. sandy1618 (track at https://sandy1618.goatcounter.com)
+google_adsense_client: ""  # e.g. ca-pub-XXXXXXXXXXXXXXXX (for future Google Ads)
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
